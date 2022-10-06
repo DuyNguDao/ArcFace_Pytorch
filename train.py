@@ -144,7 +144,7 @@ def main(args):
 
     loss_am = AverageMeter()
     amp = torch.cuda.amp.grad_scaler.GradScaler(growth_interval=100)
-
+    save_loss = []
     for epoch in range(start_epoch, cfg.num_epoch):
 
         if isinstance(train_loader, DataLoader):
@@ -174,7 +174,10 @@ def main(args):
 
                 if global_step % cfg.verbose == 0 and global_step > 0:
                     callback_verification(global_step, backbone)
-
+        save_loss.append(loss_am)
+        with open(cfg.output + "/loss.txt", "w") as file:
+            file.write("\n".join([str(i) for i in save_loss])
+        file.close()
         if cfg.save_all_states:
             checkpoint = {
                 "epoch": epoch + 1,
