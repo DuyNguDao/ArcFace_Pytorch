@@ -3,8 +3,8 @@ from easydict import EasyDict as edict
 config = edict()
 config.margin_list = (1.0, 0.0, 0.4)
 config.network = "mbf"
-config.resume = False
-config.output = None
+config.resume = False #continue train
+config.output = None #path_save
 config.embedding_size = 512
 config.sample_rate = 1.0
 config.fp16 = True
@@ -15,7 +15,7 @@ config.lr = 0.1
 config.verbose = 2000
 config.dali = False
 
-config.rec = "/train_tmp/WebFace4M"
+config.rec = "/train_tmp/WebFace4M" #dataset
 config.num_classes = 10572
 config.num_image = 494149
 config.num_epoch = 20
