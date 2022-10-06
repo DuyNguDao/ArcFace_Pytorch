@@ -176,7 +176,7 @@ def main(args):
                     callback_verification(global_step, backbone)
         save_loss.append(loss_am)
         with open(cfg.output + "/loss.txt", "w") as file:
-            file.write("\n".join([str(i) for i in save_loss])
+            file.write("\n".join([str(i) for i in save_loss.avg])
         file.close()
         if cfg.save_all_states:
             checkpoint = {
