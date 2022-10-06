@@ -17,7 +17,7 @@ config.dali = False
 
 config.rec = "/train_tmp/WebFace4M"
 config.num_classes = 10572
-config.num_image = 501196
+config.num_image = 494149
 config.num_epoch = 20
 config.warmup_epoch = 0
 config.val_targets = ['lfw', "agedb_30"]
